@@ -13,7 +13,7 @@ import SwiftUI
 class AppDelegate: NSObject, NSApplicationDelegate {
 
     var window: NSWindow!
-
+    var connectionManager: BuWizzConnectionManager!
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         // Create the SwiftUI view that provides the window contents.
@@ -28,12 +28,25 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         window.setFrameAutosaveName("Main Window")
         window.contentView = NSHostingView(rootView: contentView)
         window.makeKeyAndOrderFront(nil)
+        
+        connectionManager = BuWizzConnectionManager()
+        connectionManager.delegate = self
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {
         // Insert code here to tear down your application
     }
+}
 
-
+extension AppDelegate: BuWizzConnectionManagerDelegate {
+    func didConnectBuWizz(buWizz: BuWizz) {
+        print("Connected BuWizz: \(buWizz)")
+        buWizz.write([0x10, 0x00, 0x00, 0x00, 0x00, 0x00])
+        buWizz.write([0x11, 0x02])
+        buWizz.write([0x10, 0x00, 0x00, 0x0e, 0x00, 0x00])
+        buWizz.write([0x10, 0x00, 0x00, 0x34, 0x00, 0x00])
+        buWizz.write([0x10, 0x00, 0x00, 0x4f, 0x00, 0x00])
+        buWizz.write([0x10, 0x00, 0x00, 0x5e, 0x00, 0x00])
+    }
 }
 

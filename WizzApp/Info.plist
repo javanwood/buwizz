@@ -30,6 +30,8 @@
 	<string>NSApplication</string>
 	<key>NSSupportsAutomaticTermination</key>
 	<true/>
+	<key>NSBluetoothPeripheralUsageDescription</key>
+	<string>Connect to BuWizz</string>
 	<key>NSSupportsSuddenTermination</key>
 	<true/>
 </dict>

@@ -12,6 +12,9 @@
 		51C3FAEA23AF8B430009CFC1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 51C3FAE923AF8B430009CFC1 /* Assets.xcassets */; };
 		51C3FAED23AF8B430009CFC1 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 51C3FAEC23AF8B430009CFC1 /* Preview Assets.xcassets */; };
 		51C3FAF023AF8B430009CFC1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 51C3FAEE23AF8B430009CFC1 /* Main.storyboard */; };
+		51DB8ADB2413A16F006E8A9D /* BuWizz.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51DB8ADA2413A16F006E8A9D /* BuWizz.swift */; };
+		51DB8ADE2413A215006E8A9D /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 51DB8ADD2413A215006E8A9D /* CoreBluetooth.framework */; };
+		51DB8AE22414A91B006E8A9D /* BuWizzConnectionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51DB8AE12414A91B006E8A9D /* BuWizzConnectionManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +26,9 @@
 		51C3FAEF23AF8B430009CFC1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		51C3FAF123AF8B430009CFC1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		51C3FAF223AF8B430009CFC1 /* WizzApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WizzApp.entitlements; sourceTree = "<group>"; };
+		51DB8ADA2413A16F006E8A9D /* BuWizz.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuWizz.swift; sourceTree = "<group>"; };
+		51DB8ADD2413A215006E8A9D /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
+		51DB8AE12414A91B006E8A9D /* BuWizzConnectionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuWizzConnectionManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -30,6 +36,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				51DB8ADE2413A215006E8A9D /* CoreBluetooth.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -41,6 +48,7 @@
 			children = (
 				51C3FAE423AF8B400009CFC1 /* WizzApp */,
 				51C3FAE323AF8B400009CFC1 /* Products */,
+				51DB8ADC2413A215006E8A9D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -62,6 +70,8 @@
 				51C3FAF123AF8B430009CFC1 /* Info.plist */,
 				51C3FAF223AF8B430009CFC1 /* WizzApp.entitlements */,
 				51C3FAEB23AF8B430009CFC1 /* Preview Content */,
+				51DB8ADA2413A16F006E8A9D /* BuWizz.swift */,
+				51DB8AE12414A91B006E8A9D /* BuWizzConnectionManager.swift */,
 			);
 			path = WizzApp;
 			sourceTree = "<group>";
@@ -72,6 +82,14 @@
 				51C3FAEC23AF8B430009CFC1 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		51DB8ADC2413A215006E8A9D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				51DB8ADD2413A215006E8A9D /* CoreBluetooth.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -101,7 +119,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1120;
-				LastUpgradeCheck = 1120;
+				LastUpgradeCheck = 1130;
 				ORGANIZATIONNAME = "Javan Wood";
 				TargetAttributes = {
 					51C3FAE123AF8B400009CFC1 = {
@@ -146,6 +164,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				51C3FAE823AF8B400009CFC1 /* ContentView.swift in Sources */,
+				51DB8AE22414A91B006E8A9D /* BuWizzConnectionManager.swift in Sources */,
+				51DB8ADB2413A16F006E8A9D /* BuWizz.swift in Sources */,
 				51C3FAE623AF8B400009CFC1 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -282,6 +302,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = WizzApp/WizzApp.entitlements;
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"WizzApp/Preview Content\"";
@@ -305,6 +326,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = WizzApp/WizzApp.entitlements;
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"WizzApp/Preview Content\"";
