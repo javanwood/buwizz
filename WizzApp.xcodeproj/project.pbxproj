@@ -15,6 +15,10 @@
 		51DB8ADB2413A16F006E8A9D /* BuWizz.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51DB8ADA2413A16F006E8A9D /* BuWizz.swift */; };
 		51DB8ADE2413A215006E8A9D /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 51DB8ADD2413A215006E8A9D /* CoreBluetooth.framework */; };
 		51DB8AE22414A91B006E8A9D /* BuWizzConnectionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51DB8AE12414A91B006E8A9D /* BuWizzConnectionManager.swift */; };
+		51E5017A241C84C7004A026F /* VehicleManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51E50179241C84C7004A026F /* VehicleManager.swift */; };
+		51E5017C241C84FF004A026F /* VehicleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51E5017B241C84FF004A026F /* VehicleBuilder.swift */; };
+		51E5017E241C8D9C004A026F /* GamepadScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51E5017D241C8D9C004A026F /* GamepadScanner.swift */; };
+		51FBEADA2416481800045C10 /* RalfVehicle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51FBEAD92416481800045C10 /* RalfVehicle.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +33,10 @@
 		51DB8ADA2413A16F006E8A9D /* BuWizz.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuWizz.swift; sourceTree = "<group>"; };
 		51DB8ADD2413A215006E8A9D /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
 		51DB8AE12414A91B006E8A9D /* BuWizzConnectionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuWizzConnectionManager.swift; sourceTree = "<group>"; };
+		51E50179241C84C7004A026F /* VehicleManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleManager.swift; sourceTree = "<group>"; };
+		51E5017B241C84FF004A026F /* VehicleBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleBuilder.swift; sourceTree = "<group>"; };
+		51E5017D241C8D9C004A026F /* GamepadScanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamepadScanner.swift; sourceTree = "<group>"; };
+		51FBEAD92416481800045C10 /* RalfVehicle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RalfVehicle.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +80,10 @@
 				51C3FAEB23AF8B430009CFC1 /* Preview Content */,
 				51DB8ADA2413A16F006E8A9D /* BuWizz.swift */,
 				51DB8AE12414A91B006E8A9D /* BuWizzConnectionManager.swift */,
+				51E50179241C84C7004A026F /* VehicleManager.swift */,
+				51E5017B241C84FF004A026F /* VehicleBuilder.swift */,
+				51E5017D241C8D9C004A026F /* GamepadScanner.swift */,
+				51FBEAD92416481800045C10 /* RalfVehicle.swift */,
 			);
 			path = WizzApp;
 			sourceTree = "<group>";
@@ -163,8 +175,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				51E5017E241C8D9C004A026F /* GamepadScanner.swift in Sources */,
 				51C3FAE823AF8B400009CFC1 /* ContentView.swift in Sources */,
 				51DB8AE22414A91B006E8A9D /* BuWizzConnectionManager.swift in Sources */,
+				51E5017A241C84C7004A026F /* VehicleManager.swift in Sources */,
+				51FBEADA2416481800045C10 /* RalfVehicle.swift in Sources */,
+				51E5017C241C84FF004A026F /* VehicleBuilder.swift in Sources */,
 				51DB8ADB2413A16F006E8A9D /* BuWizz.swift in Sources */,
 				51C3FAE623AF8B400009CFC1 /* AppDelegate.swift in Sources */,
 			);

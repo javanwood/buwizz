@@ -9,14 +9,20 @@
 import SwiftUI
 
 struct ContentView: View {
+    let vehicleManager: VehicleManager
+    
+    init(vehicleManager: VehicleManager) {
+        self.vehicleManager = vehicleManager
+        vehicleManager.targetVehicle = RalfBuilder()
+    }
+    
     var body: some View {
-        Text("Hello, World!")
-            .frame(maxWidth: .infinity, maxHeight: .infinity)
+        Text("BuWizz").frame(width: 100, height: 100)
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        ContentView(vehicleManager: VehicleManager())
     }
 }
