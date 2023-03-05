@@ -7,8 +7,9 @@
 
 import Foundation
 import GameController
+import Combine
 
-class RalfVehicle {
+class RalfVehicle: Vehicle {
     
     class Builder : VehicleBuilder {
         private var back: BuWizz? = nil
@@ -19,7 +20,7 @@ class RalfVehicle {
         
         var buWizzTargets: [UUID] { return [backBuWizzId, topBuWizzId] }
         
-        var vehicle: AnyObject? {
+        var vehicle: RalfVehicle? {
             if let b = back, let t = top, let c = controller {
                 print("buildSucceeded")
                 return RalfVehicle(back: b, top: t, controller: c)
@@ -43,6 +44,9 @@ class RalfVehicle {
     enum Gear {
         case high, low
     }
+    
+    let events: AnyPublisher<Event, Never>
+    private let eventSource = PassthroughSubject<Event, Never>()
     
     let backBuWizz: BuWizz
     let topBuWizz: BuWizz
@@ -76,6 +80,7 @@ class RalfVehicle {
         backBuWizz = back
         topBuWizz = top
         self.controller = controller
+        events = eventSource.eraseToAnyPublisher()
         gear = .low
         setGear(.low)
         

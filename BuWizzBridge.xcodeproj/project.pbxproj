@@ -20,6 +20,14 @@
 		8DBB01AB29B2CFE30071D27C /* VehicleManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DBB01A129B2CFE30071D27C /* VehicleManager.swift */; };
 		8DBB01AC29B2CFE30071D27C /* GamepadScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DBB01A229B2CFE30071D27C /* GamepadScanner.swift */; };
 		8DBB01AD29B2CFE30071D27C /* RalfVehicle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DBB01A429B2CFE30071D27C /* RalfVehicle.swift */; };
+		8DE35B4729B2FAED0056A7E3 /* LogRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DE35B4629B2FAED0056A7E3 /* LogRow.swift */; };
+		8DE35B4A29B2FB2F0056A7E3 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DE35B4929B2FB2F0056A7E3 /* Log.swift */; };
+		8DE35B4C29B2FC6C0056A7E3 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DE35B4B29B2FC6C0056A7E3 /* Colors.swift */; };
+		8DE35B4E29B2FE490056A7E3 /* LogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DE35B4D29B2FE490056A7E3 /* LogView.swift */; };
+		8DE35B5029B2FF240056A7E3 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DE35B4F29B2FF240056A7E3 /* Event.swift */; };
+		8DE35B5229B30AA20056A7E3 /* StatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DE35B5129B30AA20056A7E3 /* StatusView.swift */; };
+		8DE35B5429B4BB550056A7E3 /* Vehicle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DE35B5329B4BB550056A7E3 /* Vehicle.swift */; };
+		8DE35B5729B4BEAF0056A7E3 /* SimpleVehicle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DE35B5629B4BEAF0056A7E3 /* SimpleVehicle.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +65,14 @@
 		8DBB01A129B2CFE30071D27C /* VehicleManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VehicleManager.swift; sourceTree = "<group>"; };
 		8DBB01A229B2CFE30071D27C /* GamepadScanner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GamepadScanner.swift; sourceTree = "<group>"; };
 		8DBB01A429B2CFE30071D27C /* RalfVehicle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RalfVehicle.swift; sourceTree = "<group>"; };
+		8DE35B4629B2FAED0056A7E3 /* LogRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogRow.swift; sourceTree = "<group>"; };
+		8DE35B4929B2FB2F0056A7E3 /* Log.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
+		8DE35B4B29B2FC6C0056A7E3 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		8DE35B4D29B2FE490056A7E3 /* LogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogView.swift; sourceTree = "<group>"; };
+		8DE35B4F29B2FF240056A7E3 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
+		8DE35B5129B30AA20056A7E3 /* StatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusView.swift; sourceTree = "<group>"; };
+		8DE35B5329B4BB550056A7E3 /* Vehicle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vehicle.swift; sourceTree = "<group>"; };
+		8DE35B5629B4BEAF0056A7E3 /* SimpleVehicle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleVehicle.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +125,7 @@
 			children = (
 				8DBB017029B2CF260071D27C /* BuWizzBridgeApp.swift */,
 				8DBB019D29B2CFE30071D27C /* ContentView.swift */,
+				8DE35B4829B2FB160056A7E3 /* Info */,
 				8DBB01AE29B2CFF60071D27C /* Hardware */,
 				8DE35B4429B2FA580056A7E3 /* Vehicle */,
 				8DE35B4529B2FA840056A7E3 /* View */,
@@ -157,9 +174,10 @@
 		8DE35B4429B2FA580056A7E3 /* Vehicle */ = {
 			isa = PBXGroup;
 			children = (
-				8DBB01A429B2CFE30071D27C /* RalfVehicle.swift */,
+				8DE35B5529B4BE950056A7E3 /* Instances */,
 				8DBB019F29B2CFE30071D27C /* VehicleBuilder.swift */,
 				8DBB01A129B2CFE30071D27C /* VehicleManager.swift */,
+				8DE35B5329B4BB550056A7E3 /* Vehicle.swift */,
 			);
 			path = Vehicle;
 			sourceTree = "<group>";
@@ -167,8 +185,30 @@
 		8DE35B4529B2FA840056A7E3 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				8DE35B4629B2FAED0056A7E3 /* LogRow.swift */,
+				8DE35B4B29B2FC6C0056A7E3 /* Colors.swift */,
+				8DE35B4D29B2FE490056A7E3 /* LogView.swift */,
+				8DE35B5129B30AA20056A7E3 /* StatusView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		8DE35B4829B2FB160056A7E3 /* Info */ = {
+			isa = PBXGroup;
+			children = (
+				8DE35B4929B2FB2F0056A7E3 /* Log.swift */,
+				8DE35B4F29B2FF240056A7E3 /* Event.swift */,
+			);
+			path = Info;
+			sourceTree = "<group>";
+		};
+		8DE35B5529B4BE950056A7E3 /* Instances */ = {
+			isa = PBXGroup;
+			children = (
+				8DBB01A429B2CFE30071D27C /* RalfVehicle.swift */,
+				8DE35B5629B4BEAF0056A7E3 /* SimpleVehicle.swift */,
+			);
+			path = Instances;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -302,13 +342,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				8DBB01AA29B2CFE30071D27C /* ConnectionManager.swift in Sources */,
+				8DE35B4C29B2FC6C0056A7E3 /* Colors.swift in Sources */,
+				8DE35B4E29B2FE490056A7E3 /* LogView.swift in Sources */,
+				8DE35B5429B4BB550056A7E3 /* Vehicle.swift in Sources */,
 				8DBB01A929B2CFE30071D27C /* VehicleBuilder.swift in Sources */,
+				8DE35B5229B30AA20056A7E3 /* StatusView.swift in Sources */,
+				8DE35B4A29B2FB2F0056A7E3 /* Log.swift in Sources */,
+				8DE35B4729B2FAED0056A7E3 /* LogRow.swift in Sources */,
+				8DE35B5729B4BEAF0056A7E3 /* SimpleVehicle.swift in Sources */,
 				8DBB01AB29B2CFE30071D27C /* VehicleManager.swift in Sources */,
 				8DBB01A829B2CFE30071D27C /* BuWizz.swift in Sources */,
 				8DBB01AC29B2CFE30071D27C /* GamepadScanner.swift in Sources */,
 				8DBB01AD29B2CFE30071D27C /* RalfVehicle.swift in Sources */,
 				8DBB01A729B2CFE30071D27C /* ContentView.swift in Sources */,
 				8DBB017129B2CF260071D27C /* BuWizzBridgeApp.swift in Sources */,
+				8DE35B5029B2FF240056A7E3 /* Event.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

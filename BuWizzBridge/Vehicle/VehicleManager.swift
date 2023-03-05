@@ -6,9 +6,10 @@
 //
 
 import Foundation
+import Combine
 
 class VehicleManager {
-    var builder: VehicleBuilder? {
+    var builder: (any VehicleBuilder)? {
         didSet {
             restartScan()
         }
@@ -16,9 +17,18 @@ class VehicleManager {
     
     private let buWizzConnectionManager = BuWizzConnectionManager()
     private var gamepadScanner = ExtendedGamepadScanner()
-    private var vehicle: AnyObject? = nil
+    private var vehicle: (any Vehicle)? = nil
+    
+    private let logsSubject = PassthroughSubject<Log, Never>()
+    private let eventsSourceSubject = PassthroughSubject<AnyPublisher<Event, Never>, Never>()
+    let logs: AnyPublisher<Log, Never>
+    let events: AnyPublisher<Event, Never>
     
     init() {
+        logs = logsSubject.eraseToAnyPublisher()
+        // https://www.vadimbulavin.com/map-flatmap-switchtolatest-in-combine-framework/
+        events = eventsSourceSubject.switchToLatest().eraseToAnyPublisher()
+        
         buWizzConnectionManager.didFinishSetup = { self.restartScan() }
     }
     
@@ -26,12 +36,12 @@ class VehicleManager {
         stopScan()
         guard let builder = self.builder else { return }
         buWizzConnectionManager.startScan(forBuWizzIds: builder.buWizzTargets) { buWizz in
-            print("Found BuWizz: \(buWizz.peripheral.identifier)")
+            self.logsSubject.send(Log(timestamp: Date.now, text: "Found BuWizz \(buWizz.peripheral.identifier)"))
             self.builder?.addBuWizz(buWizz)
             self.tryBuild()
         }
         gamepadScanner.startScan { gamepad in
-            print("Found Gamepad")
+            self.logsSubject.send(Log(timestamp: Date.now, text: "Found Gamepad"))
             self.builder?.addGamepad(gamepad)
             self.tryBuild()
         }
@@ -40,6 +50,8 @@ class VehicleManager {
     func tryBuild() {
         if let vehicle = builder?.vehicle {
             self.vehicle = vehicle
+            eventsSourceSubject.send(vehicle.events.eraseToAnyPublisher())
+            self.logsSubject.send(Log(timestamp: Date.now, text: "Vehicle ready to go"))
             stopScan()
         }
     }

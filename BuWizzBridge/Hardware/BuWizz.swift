@@ -7,6 +7,7 @@
 
 import Foundation
 import CoreBluetooth
+import Combine
 
 class BuWizz: NSObject {
     
@@ -26,6 +27,14 @@ class BuWizz: NSObject {
     var three: Int8 = 0
     var four: Int8 = 0
     
+    fileprivate var timer: Timer? = nil
+    
+    fileprivate var writeTimestamp: Date? = nil
+    fileprivate var rssiTimestamp: Date? = nil
+    
+    let events: AnyPublisher<Event, Never>
+    private let eventsSource = PassthroughSubject<Event, Never>()
+    
     let peripheral: CBPeripheral
     
     fileprivate let motorControlService: CBService
@@ -37,10 +46,7 @@ class BuWizz: NSObject {
     }
     
     fileprivate func _step_send() {
-        guard let data = writeBuffer.first else {
-            setMotorValues()
-            return
-        }
+        guard let data = writeBuffer.first else { return }
         switch state {
         case .ready:
             state = .busy
@@ -53,11 +59,17 @@ class BuWizz: NSObject {
         self.peripheral = peripheral
         self.motorControlService = motorControlService
         self.motorControlCharacteristic = motorControlCharacteristic
+        events = eventsSource.eraseToAnyPublisher()
         super.init()
         peripheral.delegate = self
         setMotorValues()
         setPowerMode(.ludacris)
         _step_send()
+        
+        timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { _ in
+            self.rssiTimestamp = Date.now
+            self.peripheral.readRSSI()
+        }
     }
     
     func setMotorValues() {
@@ -75,9 +87,23 @@ extension BuWizz: CBPeripheralDelegate {
     func peripheral(_ peripheral: CBPeripheral, didWriteValueFor characteristic: CBCharacteristic, error: Error?) {
         if let e = error {
             print("Write failed with error \(e)")
+            writeTimestamp = nil
         } else {
             state = .ready
             writeBuffer.remove(at: 0)
+        }
+    }
+   
+    // FYI this the way now for macOS too
+    func peripheral(_ peripheral: CBPeripheral, didReadRSSI RSSI: NSNumber, error: Error?) {
+        let now = Date.now
+        if let rssiStart = rssiTimestamp {
+            eventsSource.send(Event.signalStrength(
+                timestamp: now,
+                rssi: RSSI.intValue,
+                latency: now.timeIntervalSinceReferenceDate - rssiStart.timeIntervalSinceReferenceDate
+            ))
+            rssiTimestamp = nil
         }
     }
 }

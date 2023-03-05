@@ -9,8 +9,9 @@ import Foundation
 import GameController
 
 protocol VehicleBuilder: AnyObject {
+    associatedtype VehicleType : Vehicle
     func addBuWizz(_ buWizz: BuWizz)
     func addGamepad(_ gamepad: GCExtendedGamepad)
     var buWizzTargets: [UUID] { get }
-    var vehicle: AnyObject? { get }
+    var vehicle: VehicleType? { get }
 }
